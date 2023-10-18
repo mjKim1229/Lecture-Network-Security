@@ -35,4 +35,3 @@ with open('sig.txt', 'wb') as output_file:
 
 #print(encodeSign) 
 
-#Base 64인코딩 
