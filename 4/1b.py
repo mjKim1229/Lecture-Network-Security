@@ -1,25 +1,6 @@
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 
-# RSA 생성
-keyPair = RSA.generate(2048)
-
-# 개인 키를 바이트로 저장
-priKeyPEM = keyPair.export_key(passphrase="1234", pkcs=8)
-
-# 개인 키를 파일에 저장
-with open('Alice_private.pem', 'wb') as output_file:
-    output_file.write(priKeyPEM)
-
-# 공개 키 생성
-pubkey = keyPair.publickey()
-
-# 공개 키를 바이트로 저장
-pubKeyPEM = pubkey.export_key()
-
-# 공개 키를 파일에 저장
-with open('Alice_public.pem', 'wb') as output_file:
-    output_file.write(pubKeyPEM)
 
 # 암호화할 텍스트 데이터 읽기
 with open('1.txt', 'r') as file:
