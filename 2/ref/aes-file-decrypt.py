@@ -3,7 +3,7 @@ from Crypto.Hash import SHA256
 import os, random, struct
 
 def decrypt_file(key, filename):
-	
+        	
 	chunk_size = 1024
 	
 	output_filename = os.path.splitext(filename)[0]+'.decrypted'

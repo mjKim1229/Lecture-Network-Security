@@ -14,6 +14,7 @@ with open('Alice_private.pem', 'wb') as output_file:
 
 #공개키 생성
 pubkey = keyPair.publickey( ) 
+#print(pubkey)
 pubKeyPEM=pubkey.export_key()
 #print(pubKeyPEM)
 
