@@ -6,9 +6,6 @@ from Crypto.Cipher import PKCS1_OAEP
 with open('1.txt', 'rb') as file:
     textData = file.read()
 
-# 문자열을 바이트로 인코딩
-#textDataBytes = textData.encode('utf-8')
-
 # 공개 키를 로드하여 암호화
 with open('Alice_public.pem', 'rb') as file:
     pubkey_data = file.read()
