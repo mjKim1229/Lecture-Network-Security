@@ -16,10 +16,8 @@ with open('public.der', 'wb') as output_file:
 
 
 # 1.txt 읽기
-with open('1.txt', 'r') as file:
+with open('1.txt', 'rb') as file:
     textData = file.read()
-
-msg = textData.encode('utf-8')
 
 #서명 
 h= SHA.new( )
