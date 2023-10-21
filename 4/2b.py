@@ -9,10 +9,8 @@ with open('public.der', 'rb') as file:
     pubKey = RSA.import_key(pubKeyData)
 
 # 1.txt 읽기
-with open('1.txt', 'r') as file:
+with open('1.txt', 'rb') as file:
     textData = file.read()
-
-msg = textData.encode('utf-8')
 
 # sig.txt 읽기
 with open('sig.txt', 'rb') as file:
