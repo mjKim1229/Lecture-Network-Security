@@ -24,8 +24,13 @@ nonce=base64.b64decode( nonceStr )
 print ("\tReceived : ", msg2)
 
 pw = input("password: ").encode()
+
 #h=SHA.new( pw+nonce).digest()
+
+#make key 
 h= HMAC.new (pw)
+
+#update HMAC message by adding nonce 
 h = h.update(nonce).digest()
 
 hStr=base64.b64encode(h).decode()

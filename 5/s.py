@@ -35,7 +35,11 @@ print ("\nReceived : ", msg3)
 
 pw = idpw[uid].encode()
 #h2=SHA.new( pw+nonce).digest()
+
+#make key 
 h2= HMAC.new (pw)
+
+#update HMAC message by adding nonce 
 h2 = h2.update(nonce).digest()
 
 if  h== h2 :
