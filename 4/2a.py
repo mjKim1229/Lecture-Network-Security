@@ -23,6 +23,9 @@ with open('1.txt', 'rb') as file:
 h= SHA.new( )
 h.update ( msg )
 
+#비밀키 (개인키 + 공개키)로 전자 서명 
+#a만 알 수 있음 
+#1과 다르게 굳이 개인키 저장 후 읽지 않음 
 signer=PKCS1_PSS.new ( key )
 sig=signer.sign ( h )
 encodeSign = base64.b64encode(sig) 
@@ -31,5 +34,4 @@ with open('sig.txt', 'wb') as output_file:
     output_file.write(encodeSign)
 
 
-#print(encodeSign) 
 
