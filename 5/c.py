@@ -31,9 +31,10 @@ pw = input("password: ").encode()
 h= HMAC.new (pw)
 
 #update HMAC message by adding nonce 
-h = h.update(nonce).digest()
+h.update(nonce)
 
-hStr=base64.b64encode(h).decode()
+#digest HMAC and send to server 
+hStr=base64.b64encode(h.digest()).decode()
 msg3=  json.dumps ( {'h': hStr })
 comSocket.send(msg3.encode()) 
 print ("\tSent : ", msg3)

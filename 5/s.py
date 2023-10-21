@@ -40,6 +40,7 @@ pw = idpw[uid].encode()
 h2= HMAC.new (pw)
 
 #update HMAC message by adding nonce 
+#digest HMAC 
 h2 = h2.update(nonce).digest()
 
 if  h== h2 :
