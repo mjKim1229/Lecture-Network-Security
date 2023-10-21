@@ -34,8 +34,8 @@ h= HMAC.new (pw)
 h.update(nonce)
 
 #digest HMAC and send to server 
-hStr=base64.b64encode(h.digest()).decode()
-msg3=  json.dumps ( {'h': hStr })
+macFromClient = base64.b64encode(h.digest()).decode()
+msg3=  json.dumps ( {'h': macFromClient })
 comSocket.send(msg3.encode()) 
 print ("\tSent : ", msg3)
 

@@ -30,7 +30,7 @@ print ("\nSent : ", msg2)
 
 msg3 =connection.recv(1024).decode()
 hStr= json.loads( msg3) ['h'].encode()
-h=base64.b64decode (hStr)
+macFromClient = base64.b64decode (hStr)
 print ("\nReceived : ", msg3)
 
 pw = idpw[uid].encode()
@@ -41,8 +41,8 @@ h2= HMAC.new (pw)
 
 #update HMAC message by adding nonce 
 #digest HMAC 
-h2 = h2.update(nonce).digest()
+macFromServer = h2.update(nonce).digest()
 
-if  h== h2 :
+if macFromClient== macFromServer:
     print ("\nVerified: ", uid)
 
