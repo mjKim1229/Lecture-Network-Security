@@ -14,7 +14,7 @@ h.update(message)
 mac = h.digest()
 
 # HMAC 값을 출력
-print("생성된 HMAC:", mac.hex())
+print("생성된 HMAC:", mac)
 
 # 1.txt 파일에 HMAC을 붙여서 H.txt로 저장
 with open('H.txt', 'wb') as output_file:
