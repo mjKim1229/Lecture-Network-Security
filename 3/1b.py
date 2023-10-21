@@ -5,25 +5,28 @@ key = input("키를 입력하세요: ").encode()
 
 # H.txt 파일 읽기 (이진 모드로)
 with open('H.txt', 'rb') as file:
-    data = file.read()
+    allDataInText = file.read()
 
-print("H.txt에서 읽은값: ",data)
-# HMAC 값 추출
-file_data, mac_received = data.split(b'\n', 1)
-file_data += b'\n'
-print(file_data)
-print(mac_received)
-# HMAC 생성
+print("H.txt 전체 읽은값: ",allDataInText)
+
+#H.txt에서 plaintext와 mac값 분리 
+plainText, macInText = allDataInText.split(b'\n', 1)
+plainText+=b'\n'
+print("plainText", plainText)
+print("macInText", macInText)
+
+# HMAC 생성 : User input Key 이용 
+#H.txt와 현재 User이 공유하는 Key
 h = HMAC.new(key)
-h.update(file_data)
-mac_calculated = h.digest()
+h.update(plainText)
+macMadeByKey = h.digest()
 
 # HMAC 값을 출력
-print("받은 HMAC:", mac_received.hex())
-print("계산된 HMAC:", mac_calculated.hex())
+print("H.text에 있는 HMAC:", macInText)
+print("Key이용하여 만든 HMAC:", macMadeByKey)
 
-# HMAC 검증 및 무결성 검사
-if mac_received == mac_calculated:
+# MAC 무결성 검사
+if macInText == macMadeByKey:
     print("OK")
 else:
     print("NOK")
